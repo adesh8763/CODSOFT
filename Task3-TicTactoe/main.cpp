@@ -1,25 +1,25 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+
 
 class TicTacToe {
 private:
-    vector<vector<char>> board;
+    std::vector<std::vector<char>> board;
     char currentPlayer;
     
 public:
     TicTacToe() {
-        board = vector<vector<char>>(3, vector<char>(3, ' '));
+        board = std::vector<std::vector<char>>(3, std::vector<char>(3, ' '));
         currentPlayer = 'X';
     }
     
     void displayBoard() {
-        cout << "\n   1   2   3\n";
-        cout << "1  " << board[0][0] << " | " << board[0][1] << " | " << board[0][2] << " \n";
-        cout << "  -----------\n";
-        cout << "2  " << board[1][0] << " | " << board[1][1] << " | " << board[1][2] << " \n";
-        cout << "  -----------\n";
-        cout << "3  " << board[2][0] << " | " << board[2][1] << " | " << board[2][2] << " \n\n";
+        std::cout << "\n   1   2   3\n";
+        std::cout << "1  " << board[0][0] << " | " << board[0][1] << " | " << board[0][2] << " \n";
+        std::cout << "  -----------\n";
+        std::cout << "2  " << board[1][0] << " | " << board[1][1] << " | " << board[1][2] << " \n";
+        std::cout << "  -----------\n";
+        std::cout << "3  " << board[2][0] << " | " << board[2][1] << " | " << board[2][2] << " \n\n";
     }
     
     bool makeMove(int row, int col) {
@@ -94,16 +94,16 @@ int main() {
     bool playAgain = true;
     char choice;
     
-    cout << "====================================\n";
-    cout << "      WELCOME TO TIC-TAC-TOE\n";
-    cout << "====================================\n\n";
+    std::cout << "====================================\n";
+    std::cout << "      WELCOME TO TIC-TAC-TOE\n";
+    std::cout << "====================================\n\n";
     
     while (playAgain) {
         game.displayBoard();
         
         while (true) {
-            cout << "Player " << game.getCurrentPlayer() << ", enter your move (row and column): ";
-            cin >> row >> col;
+            std::cout << "Player " << game.getCurrentPlayer() << ", enter your move (row and column): ";
+            std::cin >> row >> col;
             
             row = row - 1;
             col = col - 1;
@@ -112,37 +112,37 @@ int main() {
                 game.displayBoard();
                 
                 if (game.checkWin()) {
-                    cout << "====================================\n";
-                    cout << "      PLAYER " << game.getCurrentPlayer() << " WINS!\n";
-                    cout << "====================================\n\n";
+                    std::cout << "====================================\n";
+                    std::cout << "      PLAYER " << game.getCurrentPlayer() << " WINS!\n";
+                    std::cout << "====================================\n\n";
                     break;
                 }
                 
                 if (game.isBoardFull()) {
-                    cout << "====================================\n";
-                    cout << "         IT'S A DRAW!\n";
-                    cout << "====================================\n\n";
+                    std::cout << "====================================\n";
+                    std::cout << "         IT'S A DRAW!\n";
+                    std::cout << "====================================\n\n";
                     break;
                 }
                 
                 game.switchPlayer();
             } else {
-                cout << "Invalid move! Try again.\n\n";
+                std::cout << "Invalid move! Try again.\n\n";
             }
         }
         
-        cout << "Do you want to play again? (y/n): ";
-        cin >> choice;
+        std::cout << "Do you want to play again? (y/n): ";
+        std::cin >> choice;
         
         if (choice == 'y' || choice == 'Y') {
             game.reset();
-            cout << "\n";
+            std::cout << "\n";
         } else {
             playAgain = false;
         }
     }
     
-    cout << "\nThanks for playing! Goodbye!\n";
+    std::cout << "\nThanks for playing! Goodbye!\n";
     
     return 0;
 }
