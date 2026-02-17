@@ -4,6 +4,7 @@
 
 template<typename T>
 T getNumber(std::string prompt){
+    
     T input;
     while(true){
         std::cout << prompt;

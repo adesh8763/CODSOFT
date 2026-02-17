@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 
 int main(){
-    vector<string> task;
+    std::vector<std::string> arr;
     return 0;
 }
